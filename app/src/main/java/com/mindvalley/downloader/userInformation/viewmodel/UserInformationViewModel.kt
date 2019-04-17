@@ -2,7 +2,7 @@ package com.mindvalley.downloader.userInformation.viewmodel
 
 import android.annotation.SuppressLint
 import android.app.Application
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
 import com.mindvalley.downloader.base.mvvm.BaseViewModel
 import com.mindvalley.downloader.userInformation.model.UserInformationResponseDTO
 import com.mindvalley.downloader.userInformation.repository.UserInformationRepository

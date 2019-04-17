@@ -1,12 +1,12 @@
 package com.mindvalley.downloader.userInformation.view.activity
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import com.mindvalley.test.BR
@@ -21,7 +21,7 @@ import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 
 
 class MainActivity : BaseActivityMVVM<com.mindvalley.test.databinding.ActivityMainBinding, UserInformationViewModel>(),
-    SwipeRefreshLayout.OnRefreshListener {
+    androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener {
     override fun onRefresh() {
         getViewModel().fetchUserInformation()
     }
@@ -60,7 +60,12 @@ class MainActivity : BaseActivityMVVM<com.mindvalley.test.databinding.ActivityMa
     }
 
     private fun initRecyclerView(){
-        recyclerview.addItemDecoration(DividerItemDecoration(this, (recyclerview.layoutManager as LinearLayoutManager).orientation))
+        recyclerview.addItemDecoration(
+            androidx.recyclerview.widget.DividerItemDecoration(
+                this,
+                (recyclerview.layoutManager as androidx.recyclerview.widget.LinearLayoutManager).orientation
+            )
+        )
         recyclerview.itemAnimator = SlideInUpAnimator().apply { setInterpolator(OvershootInterpolator()) }
         recyclerview.itemAnimator?.apply {
             addDuration = 400
